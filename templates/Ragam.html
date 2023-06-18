@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class='container'>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="well well-sm">
+                <form class="form-horizontal" action="" method="post" enctype='multipart/form-data'>
+                    {% csrf_token %}
+                    <fieldset>
+                        <lengent class="text-center">Contact us</legend>
+                            <!--Name input-->
+                            <div class="form-group">
+                                <label class="col-mid-3 control-label" for="name">Name</label>
+                                <div class="col-md-9">
+                                    <input id="name" name="name" type="text" placeholder="Your name">
+                                </div>
+                            </div>
+
+                            <!--Email input-->
+                            <div class="form-group">
+                                <label class="col-mid-3 control-label" for="email">Your E-mail</label>
+                                <div class="col-md-9">
+                                    <input id="email" name="emil" type="text" placeholder="Your email">
+                                </div>
+                            </div>
+
+
+                            <!--Message body-->
+                            <div class="form-group">
+                                <label class="col-mid-3 control-label" for="message">Your message</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea>-+
+                                        <label>Uplode your problem picture</label>
+                                    <input type="file" name="image" required >
+                                </div>
+                            </div>
+                            <!--Form actions-->
+                            <div class="form-group">
+                                <div class="col-mid-12 text-right">
+                                    <button type="submit" class="btn btn-primary bth-lg">Submit</button>
+                                </div>
+                            </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

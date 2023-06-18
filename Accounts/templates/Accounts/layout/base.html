@@ -1,0 +1,39 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>{% block title %}Ganam{% endblock title %}</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'Global/img/favicon-32x32.png'%}">
+    
+    {% comment %} Lib CSS {% endcomment %}
+    <link rel="stylesheet" href="{% static 'Global/css/styles.min.css'%}">  
+    <link rel="stylesheet" href="{% static 'Global/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'Global/bootstrap-icons/bootstrap-icons.css' %}">
+
+
+    <link rel="stylesheet" href="{% static 'Accounts/css/base.min.css' %}?v={{version}}">
+    <link rel="stylesheet" href="{% static 'Accounts/css/header.min.css' %}?v={{version}}">
+
+    {% block extraStyles %}{% endblock %}
+
+    {% comment %} JS Files {% endcomment %}
+    <script src="{% static 'Global/libs/js/jquery.min.js'%}"></script>  
+    <script src="{% static 'Global/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+    {% block header %}
+        {% include 'Accounts/layout/header.html' %}
+    {% endblock %}
+    {% block content %}{% endblock %}
+
+    
+    {% block extraScript %}{% endblock %}    
+
+</body>
+</html>
+

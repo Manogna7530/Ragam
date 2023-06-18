@@ -1,0 +1,80 @@
+{% extends './layout/base.html' %}
+{%load static%}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block extraStyles %}
+    <link rel="stylesheet" href="{%static 'Accounts/css/login.min.css' %}?v={{version}}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+
+
+{% block content %}
+    <div class=" login-container only-login">
+        <div class="row m-0 p-0">
+            <div class="col-md-6  col-sm-12 form-div">
+                <div class="login-header d-flex mt-1" >
+                    <h4>Ganam</h4>                </div>
+                <div class="container">
+                    <form method="POST">
+                         <div class="intro-group-1">Hello,</div>
+                         <div class="intro-group-2">Let's Get Started</div>
+                         <div class="mobile-text">Welcome !</div>
+                        {% csrf_token%}
+                        <span class="inp-heading">Email</span>
+                        <div class="input-group login-input-group">
+                            {{form.email}}
+                            <label class="input-group-text bg-white" for="{{form.email.id_for_label}}"><i class="sop-mail"></i></label>
+                        </div>
+                        <span class="inp-heading">Password</span>
+                        <div class="input-group login-input-group">
+                            {{form.password}}
+                            <label class="input-group-text bg-white"><i class="sop-invisible" id="eye" onclick="myFunction()" ></i></label>
+                        </div>
+                     
+                        <div class="mb-4 forget-pass"><a href="{% url 'Accounts:reset_password' %}" id="forgot-pass">Forgot your password?</a></div>
+                        <div class="row d-flex btn-div">
+                            <div class=" col-sm-12">  <button class="btn btn-primary" type="submit">Log Me In</button></div>
+                        </div>                        
+                    </form>
+
+                    
+                    {% if messages %}
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {% for message in messages%}
+                                <div>{{ message }}</div>
+                            {% endfor %}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>                    
+                    {% endif %}
+                    
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-0 m-0 p-0 login-image-container"></div>
+        </div>
+      
+    </div>
+
+{% endblock content %}
+
+{% block extraScript %}
+    <script>
+        function myFunction() {
+            var x = document.getElementById("id_password");
+            var y = document.getElementById("eye");
+            if (x.type === "password") {
+            x.type = "text";
+            y.classList.remove("sop-invisible");
+            y.classList.add("sop-eye");
+            } else {
+            x.type = "password";    
+            y.classList.remove("sop-eye");
+            y.classList.add("sop-invisible");
+            }
+        }
+    </script>
+{% endblock %}
+
+

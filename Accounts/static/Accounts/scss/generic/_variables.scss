@@ -1,0 +1,116 @@
+
+        $sopeo-pink:#ff6464;
+        $sopeo-blue:#01024E;
+        $sopeo-plum:#543864;
+        $sopeo-brown:#8B4367;
+        $text-color: #0a4a8b;
+        $text-gray:#626262;
+        $body-background:#fefefe;
+
+
+        $white:#fff;
+
+        //variables for ward cards
+        $ward-bg-color:#F4F4FF;
+
+        $ward-green:#3BA853;
+        $nursing-bg:#F4F4F4;
+        $pharmacy-icon-color:#CC9301;
+        $pharmacy-bg:  #FFF9DC;
+        $billing-icon-color:#53B467;
+        $billing-bg:  #F0FFEA;
+        $dis-count-bg: #8B4367 ;
+        $dis-time: #F4EEF1 ;
+        $dis-bg:#e4dfe2;
+
+        //Font size
+        $text-xxs:10px;
+        $text-xs:12px;
+        $text-sm:14px;
+        $text-md:18px;
+        $text-lg:24px;
+        $text-xl:30px;
+        $text-xxl:36px;
+
+        //Offline
+        $main-back: rgb(177, 177, 177) ;
+        $side-icons-active:grey;
+        $rsdh-color:#ff6464;
+        $rsdh-color-fade:#ff646411;
+        $grey:grey;
+        $black:black;
+        $light-white:#fefefe;
+        $fade-white:#e0e0e0;
+        $button-hover-color:#555;
+        $color-transparent:transparent;
+        $dot-background:#ccc;
+        $box-shadow-color:#00000014;
+        $context-menu-border:#ececec;
+        $graph-icon-background-color:#fbf7f9;
+        $graph-icon-shadow-color:#952f7030;
+        $graph-icon-border-color:#96307036;
+        $graph-navlink-border-color:#0000001f;
+        $graph-navlink-color:#7a7a7a;
+
+        $side-icons-before:#A9A9A9;
+        $nav-link-hover-color:#2e0000;
+        $nav-link-hover-background-color:#d27cb914;
+        $nav-link-hover-sideicon-before-color:#202020;
+        $offline-card1-background-color:#ffffffb8;
+
+        $timeline-nav-border-bottom:#ffefee;
+        $timeline-navlink-color:rgb(117, 114, 114);
+        $timeline-navlink-hover-color:#000000;
+
+        $success:#17bb56;
+        $danger:#bb1717;
+
+        $color-bg: #D51E49;
+        $color-bg--dark: darken($color-bg, 7%);
+        $color-bg--darker: darken($color-bg, 14%);
+        $color-text: #FAF3DD;
+        $sopeo-blue-header:#ffdddd;;
+
+:root {
+    --header-bg:#ff646421;
+    --text-light-color:#b0b0b0;
+    --card-bg-color:#fff;
+    --success-bg:linear-gradient(90deg, #e5fffa, #d3fff6 50%);
+    --warning-bg:linear-gradient(90deg, #fffbe5, #fffbd3 50%);
+    --blue-bg:#e6f0fb;
+    --bs-shadow:#00000042;
+
+    --primary-color: #ff6464;
+    --primary-light-bg: #ff646414;
+
+    --secondary-color: #01024E;
+    --font-color: #212529;
+    --bg-color: #fff;
+    --heading-color: #ff64641a;
+    --side-bg:linear-gradient(45deg, #fff3f3, #f3f2ff);
+    --violet:#8B4367;
+    --li-active-border:#ededed;
+    --submenu-border:#ffffffa6;
+    --submenu-box-shadow:#e9e9e9ad;
+    --sidenav-border:#eee;
+    --sidenav-box-shadow:#ccc;
+    --inner-submenu-border:#b8b8b82b;
+
+
+}
+
+[data-theme="dark"] {
+    --header-bg:#ff646421;
+    --primary-color: #a95353;
+    --primary-light-bg: #ff646414;
+    --secondary-color: #d5d6ff;
+    --font-color: #d2d2d2;
+    --text-light-color:#b0b0b0;
+    --bg-color: #2d2d2d;
+    --card-bg-color:#141414;
+    --success-bg:#55a897;
+    --warning-bg:#9f924b;
+    --blue-bg:#497cb5;
+    --bs-shadow:#00000042;
+    --side-bg: linear-gradient(45deg, #2d2727, #0a0a0a);
+}

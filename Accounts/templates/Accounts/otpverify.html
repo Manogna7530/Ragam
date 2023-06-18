@@ -1,0 +1,150 @@
+{% extends 'Accounts/layout/base.html' %}
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block extraStyles %}
+    <link rel="stylesheet" href="{%static 'Accounts/css/login.min.css' %}?v={{version}}">
+{% endblock %}
+{% block header %}{% endblock %}
+
+
+
+{% block content %}
+    <div class=" login-container otp-verification">
+        <div class="row m-0 p-0"> 
+            <div class="col-md-6 col-sm-12 form-div">
+                    <div class="login-header d-flex mt-1">
+                        <img src="{% static 'Global/img/client-logo.png' %}" alt="..."> 
+                    </div>
+                    <div class="container">
+                        <form method="get" id='otp-verify-form'>
+                            <h2>OTP Verification</h2>
+                            {% comment %} <h4>Verify Your Email</h4> {% endcomment %}
+                            <div class="otp-msg">Hi {{name}}! Please confirm your account by entering the authentication code sent to {{email}}</div>
+                            
+                            {% comment %} <div class="input-group mb-0">
+                                <input type="text" name="otp" id="otp" class="d-inline-block"> 
+                            </div> {% endcomment %}
+                            <div class="mb-6 text-center">
+                                <div id="otp" class="d-flex justify-content-center">
+                                    <input class="m-2 text-center form-control passInput" type="text" id="otp1" maxlength="1" size="1" autocomplete="off" required pattern="^[A-Za-z0-9]{1}" autofocus />
+                                    <input class="m-2 text-center form-control passInput" type="text" id="otp2" maxlength="1" size="1" autocomplete="off" required pattern="^[A-Za-z0-9]{1}"/>
+                                    <input class="m-2 text-center form-control passInput" type="text" id="otp3" maxlength="1" size="1" autocomplete="off" required pattern="^[A-Za-z0-9]{1}"/>
+                                    <input class="m-2 text-center form-control passInput" type="text" id="otp4" maxlength="1" size="1" autocomplete="off" required pattern="^[A-Za-z0-9]{1}"/>
+                                    <input class="m-2 text-center form-control passInput" type="text" id="otp5" maxlength="1" size="1" autocomplete="off" required pattern="^[A-Za-z0-9]{1}"/>
+                                    <input class="m-2 text-center form-control passInput" type="text" id="otp6" maxlength="1" size="1" autocomplete="off" />
+                                </div>
+                            </div>
+                            <input type="hidden" name="verify" value="1">
+                            <input type="hidden" name="otp" id="otp_input">
+                            
+                            <div class="ms-2 mb-3 mt-2 text-muted valid-otp-text">The OTP sent is valid for 30 minutes.</div> 
+                            <div class="row d-flex btn-div">
+                                <div class=" col-sm-12">  
+                                    <button class="btn btn-primary" type="button" id="submit-btn">
+                                        Verify Me
+                                    </button>
+                                </div>
+                                    
+                            </div>
+                            <br>
+                            <div class="regenerate-section"> 
+                                <div class="didnt-receive valid-otp-text">Didn't receive the code?  
+                                    <a class="btn-regenerate bold-600 disabled">Regenerate OTP</a>
+                                </div> 
+                                <div id="time" class="bold-600"></div>
+                            </div>
+                        </form>
+                        
+                        <br>
+                    </div>
+            </div>
+            <div class="col-md-6 col-sm-0 m-0 p-0 login-image-container"></div>
+        </div>
+   
+    </div>
+
+{% endblock content %}
+
+
+{% block extraScript %}
+    <script>
+        let timerOn = true;
+
+        function timer(remaining) {
+          var m = Math.floor(remaining / 60);
+          var s = remaining % 60;
+          
+          m = m < 10 ? '0' + m : m;
+          s = s < 10 ? '0' + s : s;
+          document.getElementById('time').innerHTML = m + ':' + s;
+          remaining -= 1;
+          
+          if(remaining >= 0 && timerOn) {
+            setTimeout(function() {
+                timer(remaining);
+            }, 1000);
+            return;
+          }
+
+          // Do timeout stuff here
+          $('.btn-regenerate').removeClass('disabled');
+          $('.btn-regenerate').attr('href', "{% url 'Accounts:otpverification' %}?verify=2");
+          $('#time').html('')
+        }
+        
+        timer(180);
+
+        $('.btn-regenerate').click(function(){
+            if (!$(this).hasClass('disabled')){
+                $('.btn-regenerate').addClass('disabled');
+                $('.btn-regenerate').removeAttr('href');
+                timer(180);
+            }
+        });
+        $('#btn-logout').click(function(){
+            window.location.href = "{% url 'Accounts:logout' %}"
+        })
+
+        var $inp = $(".passInput");
+
+        $inp.on({
+            input: function(ev) {
+                if(this.value) {
+                    $inp.eq($inp.index(this) + 1).focus();
+                }
+            },
+            keydown: function(ev) {
+                var i = $inp.index(this);
+                if(ev.which===8 && !this.value && i) {
+                    $inp.eq(i - 1).focus();
+                }
+            },
+            paste: function(e) {
+
+                var pastedData = e.originalEvent.clipboardData.getData('text');
+                var pastedChars = pastedData.split("");
+                
+                var curIndex = $inp.index(this)
+                
+                for (var i=0; i < pastedChars.length; i++) {
+                    var char = pastedChars[i]
+                    $inp.eq(curIndex + i).val(char).focus();
+                }
+            }
+        });
+
+        $('#submit-btn').click(function(){
+            otp1 = $('#otp1').val();
+            otp2 = $('#otp2').val();
+            otp3 = $('#otp3').val();
+            otp4 = $('#otp4').val();
+            otp5 = $('#otp5').val();
+            otp6 = $('#otp6').val();
+            total_otp = otp1+otp2+otp3+otp4+otp5+otp6;
+            $('#otp_input').val(total_otp);
+            $("#otp-verify-form").submit();
+        })
+    </script>
+{% endblock extraScript %}

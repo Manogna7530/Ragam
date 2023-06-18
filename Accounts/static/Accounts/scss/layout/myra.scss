@@ -1,0 +1,138 @@
+@import '../generic/colors';
+section#myra-bot {
+    position: fixed;
+    right: 4rem;
+    bottom: 1rem;
+    z-index: 1021;
+    .bounce-1 {
+        animation-name: bounce;
+        animation-timing-function: linear;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes bounce{
+        0%   { transform: translateY(0); }
+        50%  { transform: translateY(-20px); }
+        100% { transform: translateY(0); }
+    }
+    .text-gray-333{
+        color: #333;
+    }
+    .text-cherry-500{
+        color: #ff6464!important;
+    }
+    .text-navy-500{
+        color: #01024E!important;
+    }
+    button {
+        background: transparent;
+        border: none;
+    }
+    .myra-toggle {
+        position: fixed;
+        width: 50px;
+        height: 50px;  
+        border-radius: 50px;
+        padding-top: 6px;
+        text-align: center;
+        background: linear-gradient(180deg, #FFEDF6 0%, #FF8383 100%);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        left: 7px;
+        bottom: 7px;
+        &:before{
+            position: absolute;
+            left: 8px;
+            top: 7px;
+            background-image: url("../img/myra-choti.png");
+            width: 35px;
+            height: 35px;
+            content: "";
+        }
+        img {
+            width: 40px;
+        }
+    }
+    }
+    .livedot {
+        width: 8px;
+        height: 8px;
+        background: #5cb176;
+        border-radius: 50px;
+        position: absolute;
+        right: 3px;
+        top: 3px;
+    }    
+    .myra-chat {
+        width: 300px;
+        height: 350px;
+        position: fixed;
+        bottom: -6px;
+        right: 0;
+        border-radius: 12px 12px 8px 8px;
+        background: #fff;
+        box-shadow: 0px 0px 30px 1px rgb(0 0 0 / 25%);
+    }
+    .chat-header {
+        padding: 10px;
+        background: linear-gradient(180deg, #FFEDF6 0%, #FF8383 100%);
+        border-radius: 12px 12px 0px 0px;
+        color: $text-555;
+        .chat-bot{
+            background: #ffffff5e;
+            border-radius: 50px;
+            padding: 3px;
+            margin-right: 6px;
+        }
+    }
+    .chat-body {
+        padding: 10px;
+        .myra-msg {
+            background: #FFF9F9;
+            padding: 10px;
+            font-weight: 400;
+            border-radius: 8px;
+            font-size: .9rem;
+            .myra-feature {
+                border: solid 1px #eee;
+                padding: 10px;
+                border-radius: 8px;
+            }
+            a{
+                text-decoration: underline;
+            }
+        }
+    } 
+
+@media screen and (max-width:500px) {
+    section#myra-bot .myra-toggle {      
+        width: 35px;
+        height: 35px;
+        background: linear-gradient(180deg, #ff6464 0%, #f9aaaa 100%);        
+        color: #fff;
+        &:before{
+            left: 0px;
+            top: 10px;
+            display: inline-block;
+            background-image: none;
+            font-family: "Favorites";
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            line-height: 1;
+            text-decoration: inherit;
+            text-rendering: optimizeLegibility;
+            text-transform: none;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+            content: "\f328";
+        }
+    }
+    section#myra-bot #choti-myra {       
+        bottom: 74px;
+    }
+    .live-dot{
+        right: 1px;
+        top: 1px;
+    }
+}

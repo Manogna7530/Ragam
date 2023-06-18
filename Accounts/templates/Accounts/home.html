@@ -1,0 +1,24 @@
+{% extends './layout/base.html' %}
+{%load static%}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block extraStyles %}
+    <link rel="stylesheet" href="{%static 'Accounts/css/login.min.css' %}?v={{version}}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+
+
+{% block content %}
+
+<h1>Home</h1>
+
+{% endblock content %}
+
+{% block extraScript %}
+
+{% endblock %}
+
+

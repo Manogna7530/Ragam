@@ -1,0 +1,539 @@
+@import "../generic/colors";
+$redColor:(#FFEEEB,#FFDCD6,#FFCBC2,#FFBAAD,#FFAA99);
+$grayColor:(#F5F5F5,#EBEBEB,#E0E0E0,#D6D6D6,#CCCCCC);
+$redColor6:(#FFEEEB,#FFDCD6,#FFCBC2,#FFBAAD,#FFAA99,#FF9B85);
+$grayColor6:(#F5F5F5,#EBEBEB,#E0E0E0,#D6D6D6,#CCCCCC,#C2C2C2);
+$redColor7:(#FFEEEB,#FFDCD6,#FFCBC2,#FFBAAD,#FFAA99,#FF9B85, #FD7A5C);
+$greenColor7:(#F1FDEF,#EAFBE7,#C6F0C2,#72C090,#5CB176,#3F8D5D, #1e8345);
+$grayColor7:(#F5F5F5,#EBEBEB,#E0E0E0,#D6D6D6,#CCCCCC,#C2C2C2, #aaaaaa);
+ul.Journey{
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    position: relative;
+    background: $white;
+    padding: 0;
+    li{
+        display: flex;
+        position: relative;
+        margin: auto 0;
+        align-items: center;
+        margin-right: 10px;
+        width: 50px;
+    }
+    .box{
+        width: 50px;
+        height: 27px;
+        border: 1px 0px solid #eee;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        top: 9px;
+        i{
+            position: relative;
+            top: 4px;
+            left: 5px;
+            color: #eee;
+        }
+        .dash{
+            position: relative;
+            top:3px;
+            left: 8px;
+            color:$text-eee;
+        }
+        &::before{
+            width: 20px;
+            height: 18.5px;
+            background: rgba(0,0,0,0);
+            left: -10px;
+            top: 3.1px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            position: absolute;
+            content: "";
+            transform: rotate(-45deg);
+        }
+        &::after{
+            width: 20px;
+            height: 18px;
+            background: rgba(0,0,0,0);
+            right: -10px;
+            top: 3.5px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            position: absolute;
+            content: "";
+            transform: rotate(-45deg);
+            z-index: 1;
+        }
+    }
+    &.red{
+        li{
+             @for $i from 1 through length($redColor) {
+                    &:nth-child(#{$i}) {
+                        $color-from-list: nth($redColor ,$i);                   
+                          .box.box-bg{
+                                    background:$color-from-list ;
+                                    border: none;
+                                    i{
+                                        @if $i <3{
+                                            color:$cherry-500;
+                                        }
+                                        @else{
+                                            color: #fff;
+                                        }
+                                        
+                                    }
+                                    &::before{
+                                        background: #fff;
+                                        border: none;
+                                        top: 4.1px;
+                                    }
+                                    &::after{
+                                        background: $color-from-list;
+                                        border: none;
+                                        top: 4.8px;
+                                    }
+                                }
+                              
+                            }
+                  
+            }
+           .box.box-bg.disabled{
+                background:#eee;
+                border: none;
+                i{
+                        color: #fff;
+                    
+                }
+                &::before{
+                    background: #fff;
+                    border: none;
+                    top: 4.1px;
+                }
+                &::after{
+                    background: #eee;
+                    border: none;
+                    top: 4.8px;
+                }
+            }
+           
+      
+    
+    }
+    }
+    &.gray{
+        li{
+            @for $i from 1 through length($grayColor){
+                &:nth-child(#{$i}) {
+                    $color-from-list: nth($grayColor ,$i);
+                    .box.box-bg{
+                        background:$color-from-list ;
+                        border: none;
+                        i{
+                            @if $i <3{
+                                color:$text-777;
+                            }
+                            @else{
+                                color: #fff;
+                            }
+                            
+                        }
+                        &::before{
+                            background: #fff;
+                            border: none;
+                            top: 4.1px;
+                        }
+                        &::after{
+                            background: $color-from-list;
+                            border: none;
+                            top: 4.8px;
+                        }
+                    }
+                }       
+        }
+        .box.box-bg.disabled{
+            background:#eee;
+            border: none;
+            i{
+                    color: #fff;
+                
+            }
+            &::before{
+                background: #fff;
+                border: none;
+                top: 4.1px;
+            }
+            &::after{
+                background: #eee;
+                border: none;
+                top: 4.8px;
+            }
+        }
+    
+    }
+    }
+    &.red.sixitem{
+        li{
+             @for $i from 1 through length($redColor6) {
+                    &:nth-child(#{$i}) {
+                        $color-from-list: nth($redColor6 ,$i);                   
+                          .box.box-bg{
+                                    background:$color-from-list ;
+                                    border: none;
+                                    i{
+                                        @if $i <4{
+                                            color:$cherry-500;
+                                        }
+                                        @else{
+                                            color: #fff;
+                                        }
+                                        
+                                    }
+                                    &::before{
+                                        background: #fff;
+                                        border: none;
+                                        top: 4.1px;
+                                    }
+                                    &::after{
+                                        background: $color-from-list;
+                                        border: none;
+                                        top: 4.8px;
+                                    }
+                                }
+                              
+                            }
+                  
+            }
+           .box.box-bg.disabled{
+                background:#eee;
+                border: none;
+                i{
+                        color: #fff;
+                    
+                }
+                &::before{
+                    background: #fff;
+                    border: none;
+                    top: 4.1px;
+                }
+                &::after{
+                    background: #eee;
+                    border: none;
+                    top: 4.8px;
+                }
+            }
+           
+      
+    
+    }
+    }
+    &.gray.sixitem{
+        li{
+            @for $i from 1 through length($grayColor6){
+                &:nth-child(#{$i}) {
+                    $color-from-list: nth($grayColor6 ,$i);
+                    .box.box-bg{
+                        background:$color-from-list ;
+                        border: none;
+                        i{
+                            @if $i <3{
+                                color:$text-777;
+                            }
+                            @else{
+                                color: #fff;
+                            }
+                            
+                        }
+                        &::before{
+                            background: #fff;
+                            border: none;
+                            top: 4.1px;
+                        }
+                        &::after{
+                            background: $color-from-list;
+                            border: none;
+                            top: 4.8px;
+                        }
+                    }
+                }       
+        }
+        .box.box-bg.disabled{
+            background:#eee;
+            border: none;
+            i{
+                    color: #fff;
+                
+            }
+            &::before{
+                background: #fff;
+                border: none;
+                top: 4.1px;
+            }
+            &::after{
+                background: #eee;
+                border: none;
+                top: 4.8px;
+            }
+        }
+    
+    }
+    }
+    &.red.sevenitem{
+        li{
+             @for $i from 1 through length($redColor7) {
+                    &:nth-child(#{$i}) {
+                        $color-from-list: nth($redColor7 ,$i);                   
+                          .box.box-bg{
+                                    background:$color-from-list ;
+                                    border: none;
+                                    i{
+                                        @if $i <4{
+                                            color:$cherry-500;
+                                        }
+                                        @else{
+                                            color: #fff;
+                                        }
+                                        
+                                    }
+                                    &::before{
+                                        background: #fff;
+                                        border: none;
+                                        top: 4.1px;
+                                    }
+                                    &::after{
+                                        background: $color-from-list;
+                                        border: none;
+                                        top: 4.8px;
+                                    }
+                                }
+                              
+                            }
+                  
+            }
+           .box.box-bg.disabled{
+                background:#eee;
+                border: none;
+                i{
+                        color: #fff;
+                    
+                }
+                &::before{
+                    background: #fff;
+                    border: none;
+                    top: 4.1px;
+                }
+                &::after{
+                    background: #eee;
+                    border: none;
+                    top: 4.8px;
+                }
+            }
+           
+      
+    
+    }
+    }
+    &.green.sevenitem{
+        li{
+            @for $i from 1 through length($greenColor7){
+                &:nth-child(#{$i}) {
+                    $color-from-list: nth($greenColor7 ,$i);
+                    .box.box-bg{
+                        background:$color-from-list ;
+                        border: none;
+                        i{
+                            @if $i <3{
+                                color:$text-777;
+                            }
+                            @else{
+                                color: #fff;
+                            }
+                            
+                        }
+                        &::before{
+                            background: #fff;
+                            border: none;
+                            top: 4.1px;
+                        }
+                        &::after{
+                            background: $color-from-list;
+                            border: none;
+                            top: 4.8px;
+                        }
+                    }
+                }       
+        }
+        .box.box-bg.disabled{
+            background:#eee;
+            border: none;
+            i{
+                    color: #fff;
+                
+            }
+            &::before{
+                background: #fff;
+                border: none;
+                top: 4.1px;
+            }
+            &::after{
+                background: #eee;
+                border: none;
+                top: 4.8px;
+            }
+        }
+    
+    }
+    }
+    &.gray.sevenitem{
+        li{
+            @for $i from 1 through length($grayColor7){
+                &:nth-child(#{$i}) {
+                    $color-from-list: nth($grayColor7 ,$i);
+                    .box.box-bg{
+                        background:$color-from-list ;
+                        border: none;
+                        i{
+                            @if $i <3{
+                                color:$text-777;
+                            }
+                            @else{
+                                color: #fff;
+                            }
+                            
+                        }
+                        &::before{
+                            background: #fff;
+                            border: none;
+                            top: 4.1px;
+                        }
+                        &::after{
+                            background: $color-from-list;
+                            border: none;
+                            top: 4.8px;
+                        }
+                    }
+                }       
+        }
+        .box.box-bg.disabled{
+            background:#eee;
+            border: none;
+            i{
+                    color: #fff;
+                
+            }
+            &::before{
+                background: #fff;
+                border: none;
+                top: 4.1px;
+            }
+            &::after{
+                background: #eee;
+                border: none;
+                top: 4.8px;
+            }
+        }
+    
+    }
+    }
+}
+
+@media(max-width:576px){
+    ul.Journey{
+        li{
+            width:40px;
+            .box{
+                width:40px;
+                height: 24px;
+                &:before{
+                    width: 17px;
+                    height: 16.5px;
+                    left: -9px;
+                    top: 2.2px;
+                }
+                &:after{
+                    width: 17px;
+                    height: 16px;
+                    right: -8px;
+                    top: 3px;
+                }
+            }
+        }
+        &.red.sixitem{
+            li{
+                @for $i from 1 through length($redColor6) {
+                    &:nth-child(#{$i}) {
+                        .box.box-bg{
+                                &:before{
+                                    right: -8px;
+                                    top: 2.8px;
+                                }
+                                &:after{
+                                    top: 4.1px;
+                                }
+                            }
+                        }
+                    }
+            }
+            
+        }
+         &.gray.sixitem{
+            li{
+                @for $i from 1 through length($grayColor6) {
+                    &:nth-child(#{$i}) {
+                        .box.box-bg{
+                                &:before{
+                                    right: -8px;
+                                    top: 2.8px;
+                                }
+                                &:after{
+                                    top: 4.1px;
+                                }
+                            }
+                        }
+                    }
+            }
+            
+        }
+
+
+        &.gray{
+            li{
+                @for $i from 1 through length($grayColor) {
+                    &:nth-child(#{$i}) {
+                        .box.box-bg{
+                                &:before{
+                                    right: -8px;
+                                    top: 2.8px;
+                                }
+                                &:after{
+                                    top: 4.1px;
+                                }
+                            }
+                        }
+                    }
+            }
+            
+        }
+        &.red{
+            li{
+                @for $i from 1 through length($redColor) {
+                    &:nth-child(#{$i}) {
+                        .box.box-bg{
+                                &:before{
+                                    right: -8px;
+                                    top: 2.8px;
+                                }
+                                &:after{
+                                    top: 4px;
+                                    width: 17.5px;
+                                    height: 16.5px;
+                                }
+                            }
+                        }
+                    }
+            }
+            
+        }
+    }
+}
