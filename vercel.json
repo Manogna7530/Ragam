@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "Ragam/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "Ragam/wsgi.py"
+    }
+  ]
+}
