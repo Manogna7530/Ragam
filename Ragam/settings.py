@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-qt*5v7(jc5$8xidgjmzse&&=sz39di98unq6@vj=xgw796b=6^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -70,7 +70,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Ragam.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
