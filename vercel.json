@@ -1,14 +1,14 @@
 {
   "builds": [
     {
-      "src": "Ragam/wsgi.py",
+      "src": "Accounts/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "Ragam/wsgi.py"
+      "dest": "Accounts/wsgi.py"
     }
   ]
 }
